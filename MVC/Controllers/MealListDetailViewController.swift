@@ -72,6 +72,18 @@ class MealListDetailViewController: UIViewController, UITableViewDataSource, UIT
             case 2:
                 cellOfInfarmation.keyLabel.text = "Рейтинг:"
                 if let rating = meal?.rating {
+                    switch rating {
+                    case 5:
+                        cellOfInfarmation.valueLabel.textColor = #colorLiteral(red: 0, green: 0.5628422499, blue: 0.3188166618, alpha: 1)
+                    case 4:
+                        cellOfInfarmation.valueLabel.textColor = #colorLiteral(red: 0, green: 0.9768045545, blue: 0, alpha: 1)
+                    case 3:
+                        cellOfInfarmation.valueLabel.textColor = #colorLiteral(red: 1, green: 0.5781051517, blue: 0, alpha: 1)
+                    case 2:
+                        cellOfInfarmation.valueLabel.textColor = #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1)
+                    default:
+                        cellOfInfarmation.valueLabel.textColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+                    }
                     cellOfInfarmation.valueLabel.text = "\(rating)"
                 }
             default:
@@ -85,5 +97,6 @@ class MealListDetailViewController: UIViewController, UITableViewDataSource, UIT
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
     }
+    
     
 }
